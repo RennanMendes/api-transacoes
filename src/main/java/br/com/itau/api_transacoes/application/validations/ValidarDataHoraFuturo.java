@@ -12,7 +12,7 @@ public class ValidarDataHoraFuturo implements ValidarTransacao {
 
     @Override
     public void validar(Transacao transacao) {
-        if (transacao.getDataHora().isBefore(OffsetDateTime.now())) {
+        if (transacao.getDataHora().isAfter(OffsetDateTime.now())) {
             throw new UnprocessableEntityException("dataHora", "A dataHora não pode estar no futuro.");
         }
     }
