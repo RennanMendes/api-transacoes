@@ -15,4 +15,9 @@ public class TransacaoRepositoryImpl implements TransacaoRepository{
     public void adicionarTransacao(Transacao transacao) {
         transacoes.add(transacao);
     }
+
+    @Override
+    public void deletar() {
+        transacoes.clear();
+    }
 }
