@@ -8,8 +8,8 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestControllerAdvice
 @Slf4j
+@RestControllerAdvice
 public class ErrorHandler {
 
     @ExceptionHandler(BadRequestException.class)
@@ -21,7 +21,7 @@ public class ErrorHandler {
     @ExceptionHandler(UnprocessableEntityException.class)
     public ResponseEntity handleError422(UnprocessableEntityException exception) {
         log.error("Requisição inválida recebida - campo: {}, mensagem: {}", exception.getCampo(), exception.getMensagem());
-        return ResponseEntity.badRequest().build();
+        return ResponseEntity.unprocessableEntity().build();
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)

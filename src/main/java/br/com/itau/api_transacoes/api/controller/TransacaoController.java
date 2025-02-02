@@ -4,7 +4,6 @@ import br.com.itau.api_transacoes.api.converter.TransacaoConverter;
 import br.com.itau.api_transacoes.api.dto.TransacaoDto;
 import br.com.itau.api_transacoes.core.cases.AdicionarTransacaoUseCase;
 import br.com.itau.api_transacoes.core.cases.LimparTransacoesUseCase;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +19,7 @@ public class TransacaoController {
     private final TransacaoConverter converter;
 
     @PostMapping
-    public ResponseEntity adicionarTransacao(@Valid @RequestBody TransacaoDto dto) {
+    public ResponseEntity adicionarTransacao(@RequestBody TransacaoDto dto) {
         adicionarTransacao.adicionar(converter.dtoToEntity(dto));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
