@@ -11,7 +11,7 @@ public class ValidarValorPositivo implements ValidarTransacao {
     @Override
     public void validar(Transacao transacao) {
         if (transacao.getValor() <= 0) {
-            throw new UnprocessableEntityException("valor", "A dataHora não pode ser menor ou igual a zero.");
+            throw new UnprocessableEntityException("valor", "O valor não pode ser menor ou igual a zero.");
         }
     }
 }
