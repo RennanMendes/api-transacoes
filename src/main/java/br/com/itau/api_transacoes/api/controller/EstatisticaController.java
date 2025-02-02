@@ -18,7 +18,7 @@ public class EstatisticaController {
     private final CalcularEstatisticaUseCase calcularEstatistica;
 
     @GetMapping
-    public ResponseEntity<EstatisticaDto> calcularEstatistica(@RequestParam(value = "intervalorBusca", required = false, defaultValue = "60") Integer intervaloBuscas) {
+    public ResponseEntity<EstatisticaDto> calcularEstatistica(@RequestParam(value = "intervaloBusca", required = false, defaultValue = "60") Integer intervaloBuscas) {
         Estatistica estatistica = calcularEstatistica.calcular(intervaloBuscas);
         return ResponseEntity.ok().body(new EstatisticaDto(estatistica));
     }
