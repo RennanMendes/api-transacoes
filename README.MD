@@ -2,7 +2,9 @@
     <h1>Api Transações</h1>
 </div>
 
-API RESTful para gerenciamento de transações financeiras, desenvolvida conforme requisitos do desafio técnico do Itaú.
+API REST para o gerenciamento de transações financeiras, desenvolvida de acordo com os requisitos do desafio técnico do Itaú.  
+Link para o repositório do projeto com as orientações do desafio. 
+[desafio-itau-vaga-99-junior](https://github.com/rafaellins-itau/desafio-itau-vaga-99-junior).
 
 ## Visão Geral
 Esta API oferece funcionalidades para recebimento, processamento e análise de transações financeiras.
