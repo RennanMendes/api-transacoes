@@ -1,0 +1,81 @@
+openapi: 3.0.3
+info:
+  title: API Transações
+  description: API REST para o gerenciamento de transações financeiras, desenvolvida de acordo com os requisitos do desafio técnico do Itaú.
+  version: 0.0.1
+  contact:
+    name: Rennan Mendes
+    email: amrennan@gmail.com
+externalDocs:
+  description: Documentação GitHub
+  url: https://github.com/RennanMendes/api-transacoes
+servers:
+  - url: http://localhost:8080
+paths:
+  /transacao:
+    post:
+      summary: Adiciona novas transações
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Transacao"
+      responses:
+        201:
+          description: "Transação salva com sucesso"
+        400:
+          description: "A API não compreendeu a requisição do cliente"
+        422:
+          description: "Um ou mais dos critérios de aceite não foram atendidos"
+    delete:
+      summary: Apaga todas as transações
+      responses:
+        200:
+          description: "Transações apagadas com sucesso"
+  /estatistica:
+    get:
+      summary: Recupera estatísticas das transações
+      parameters:
+        - name: intervaloBusca
+          in: query
+          description: Intervalo de tempo em minutos para calcular as estatísticas (padrão é 60)
+          required: false
+          schema:
+            type: integer
+            default: 60
+      responses:
+        200:
+          description: "Sucesso"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Estatistica"
+components:
+  schemas:
+    Transacao:
+      type: object
+      properties:
+        valor: 
+          type: number
+          format: double
+        dataHora:
+          type: string
+          format: date-time
+    Estatistica:
+      type: object
+      properties:
+        count: 
+          type: number
+          format: long
+        sum:
+          type: number
+          format: double
+        avg:
+          type: number
+          format: double
+        min:
+          type: number
+          format: double    
+        max:
+          type: number
+          format: double        
